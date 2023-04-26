@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+pelican content -s pelicanconf.py -t theme/
