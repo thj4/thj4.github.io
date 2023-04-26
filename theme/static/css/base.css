@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "pica";
+    src: url('/theme/font/Pica_10_Pitch_Regular.otf');
+}
+
+body {
+    font-family: "pica";
+}
