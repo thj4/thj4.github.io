@@ -8,16 +8,45 @@ body {
 }
 
 h1 {
-    font-size: 4vh;
+    font-size: 3vh;
 }
 
 p {
-    font-size: 4vh;
+    font-size: 2vh;
 }
 
 .mainc {
+    width: 80%;
     margin-top: 8vh;
     margin-bottom: 9vh;
-    margin-left: 15vw;
-    margin-right: 15vw;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
+
+
+.column {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    margin-right: 0vw;
+    padding-top: 0vh;
+    padding-bottom: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+}
+
+.row {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    margin-right: 0vw;
+    padding-top: 0vh;
+    padding-bottom: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
+}
+
