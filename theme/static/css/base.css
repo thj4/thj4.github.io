@@ -9,12 +9,23 @@ body {
 }
 
 h1 {
-    font-size: 3vh;
+    font-size: 3.75vh;
 }
 
 p {
     font-size: 2vh;
 }
+
+a {
+    text-decoration: none;
+    color: #F65D13;
+}
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+a:visited { text-decoration: none; }
+a:active { text-decoration: none; }
 
 .mainc {
     width: 80%;
@@ -51,3 +62,7 @@ p {
     padding-right: 0vw;
 }
 
+
+.en-column {
+    margin-top: 5vh;
+}
