@@ -29,46 +29,37 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+{% set data = [
+    [2, [2023, "06", "02"], "angeles rojas", "nmz", ""],
+    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "empanadas&amp;feijoada"],
+] %}
+{% set mapping = {"index": 0, "date": 1, "name": 2, "room": 3, "food": 4} %}
+{% set order = "date index name room food".split(" ") %}
+
   <div class="mainc container">
     <div class="row">
       <div class="one-half column">
         <h1>treff</h1>
       </div>
     </div>
+    {% for item in data %}
     <div class="row">
+        {% for column_name in order %}
         <div class="two columns">
-            <p>treff#2</p>
+            {% set e = item[mapping[column_name]] %}
+            {% if column_name == "date" %}
+                {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] %}
+            {% elif column_name == "index" %}
+                {% set e = "treff#" + (e | string) %}
+            {% endif %}
+            <p>
+                {{ e }}
+            </p>
         </div>
-        <div class="two columns">
-            <p>2023/06/02</p>
-        </div>
-        <div class="two columns">
-            <p>nmz</p>
-        </div>
-        <div class="two columns">
-            <p>angeles rojas</p>
-        </div>
-        <div class="two columns">
-            <p>empanadas</p>
-        </div>
+        {% endfor  %}
     </div>
-    <div class="row">
-        <div class="two columns">
-            <p>treff#1</p>
-        </div>
-        <div class="two columns">
-            <p>2023/05/12</p>
-        </div>
-        <div class="two columns">
-            <p>nmz</p>
-        </div>
-        <div class="two columns">
-            <p>bernardo cruz</p>
-        </div>
-        <div class="two columns">
-            <p>empanadas</p>
-        </div>
-    </div>
+    {% endfor %}
     <div class="row">
       <div class="six columns">
         <p>
