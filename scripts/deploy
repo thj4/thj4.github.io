@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "treff.gnm.ruhr" > output/CNAME
+ghp-import output -b main
