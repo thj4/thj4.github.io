@@ -6,3 +6,18 @@
 body {
     font-family: "pica";
 }
+
+h1 {
+    font-size: 4vh;
+}
+
+p {
+    font-size: 4vh;
+}
+
+.mainc {
+    margin-top: 8vh;
+    margin-bottom: 9vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
