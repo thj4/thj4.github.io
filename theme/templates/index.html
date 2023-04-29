@@ -1,52 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
+{% block header %}
   <title>treff</title>
-  <meta name="description" content="'treff' ist eine veranstaltungsreihe der gnmr">
-  <meta name="author" content="levin eric zimmermann">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="theme/css/normalize.css">
-  <link rel="stylesheet" href="theme/css/skeleton.css">
-
-  <link rel="stylesheet" href="theme/css/base.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
-</head>
-<body>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+{% endblock %}
 
 {% set data = [
     [2, [2023, "06", "02"], "angeles rojas", "nmz", ""],
-    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "empanadas&amp;feijoada"],
+    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "empanadas&amp;feijoada", "pages/bernardo"],
 ] %}
-{% set mapping = {"index": 0, "date": 1, "name": 2, "room": 3, "food": 4} %}
+{% set mapping = {"index": 0, "date": 1, "name": 2, "room": 3, "food": 4, "subpage": 5} %}
+{% set type_to_column_count = {
+        "index": 2,
+        "date": 2,
+        "name": 3,
+        "room": 1,
+        "food": 2
+} %}
+{% set count_to_name = {
+    1: "one",
+    2: "two",
+    3: "three"
+} %}
 {% set order = "date index name room food".split(" ") %}
 
-  <div class="mainc container">
-    <div class="row">
-      <div class="one-half column">
-        <h1>treff</h1>
-      </div>
-    </div>
+{% block bodyb %}
+
     {% for item in data %}
-    <div class="row">
+    {% set subpage = item[mapping["subpage"]] %}
+    {% if subpage %}
+        <a href="{{ SITEURL }}/{{ subpage }}">
+    {% endif %}
+    <div class="row data-row">
+        <div class="one column">
+            <p>-</p>
+        </div>
         {% for column_name in order %}
-        <div class="two columns">
+        <div class="{{ count_to_name[type_to_column_count[column_name]] }} columns">
             {% set e = item[mapping[column_name]] %}
             {% if column_name == "date" %}
                 {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] %}
@@ -59,6 +48,9 @@
         </div>
         {% endfor  %}
     </div>
+    {% if subpage %}
+        </a>
+    {% endif %}
     {% endfor %}
     <div class="row">
       <div class="six columns">
@@ -87,9 +79,4 @@
         </p>
       </div>
     </div>
-  </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-</html>
+{% endblock %}
