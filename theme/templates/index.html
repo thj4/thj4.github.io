@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% set data = [
-    [2, [2023, "06", "02"], "angeles rojas", "nmz", ""],
-    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "empanadas&amp;feijoada", "pages/bernardo"],
+    [2, [2023, "06", "02"], "ángeles rojas", "nmz", ""],
+    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "", "pages/bernardo"],
 ] %}
 {% set mapping = {"index": 0, "date": 1, "name": 2, "room": 3, "food": 4, "subpage": 5} %}
 {% set type_to_column_count = {
         "index": 2,
-        "date": 2,
+        "date": 3,
         "name": 3,
         "room": 1,
-        "food": 2
+        "food": 4
 } %}
 {% set count_to_name = {
     1: "one",
@@ -25,33 +25,33 @@
 
 {% block bodyb %}
 
-    {% for item in data %}
-    {% set subpage = item[mapping["subpage"]] %}
-    {% if subpage %}
-        <a href="{{ SITEURL }}/{{ subpage }}">
-    {% endif %}
-    <div class="row data-row">
-        <div class="one column">
-            <p>-</p>
-        </div>
-        {% for column_name in order %}
-        <div class="{{ count_to_name[type_to_column_count[column_name]] }} columns">
-            {% set e = item[mapping[column_name]] %}
-            {% if column_name == "date" %}
-                {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] %}
-            {% elif column_name == "index" %}
-                {% set e = "treff#" + (e | string) %}
+    <div class="dcontainer">
+        {% for item in data %}
+            {% set subpage = item[mapping["subpage"]] %}
+            {% if subpage %}
+                <a href="{{ SITEURL }}/{{ subpage }}">
             {% endif %}
-            <p>
-                {{ e }}
-            </p>
-        </div>
-        {% endfor  %}
+            <div class="row drow">
+                {% for column_name in order %}
+                    <div class="{{ count_to_name[type_to_column_count[column_name]] }} columns">
+                        {% set e = item[mapping[column_name]] %}
+                        {% if column_name == "date" %}
+                            {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] %}
+                        {% elif column_name == "index" %}
+                            {% set e = "treff" + (e | string) %}
+                        {% endif %}
+                        <p>
+                            {{ e }}
+                        </p>
+                    </div>
+                {% endfor  %}
+            </div>
+            {% if subpage %}
+                </a>
+            {% endif %}
+        {% endfor %}
     </div>
-    {% if subpage %}
-        </a>
-    {% endif %}
-    {% endfor %}
+
     <div class="row">
       <div class="six columns">
         <p>

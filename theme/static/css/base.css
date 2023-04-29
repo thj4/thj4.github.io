@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-    font-size: 3.95vh;
+    font-size: 7.95vh;
 }
 
 p {
@@ -85,10 +85,24 @@ a:active { text-decoration: none; }
     padding-right: 0vw;
 }
 
-.data-row {
-    margin-left: 1vw;
+.drow {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    padding-left: 0vw;
 }
 
+.drow {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    padding-left: 0vw;
+}
+
+.dcontainer {
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
 
 .en-column {
     margin-top: 5vh;
