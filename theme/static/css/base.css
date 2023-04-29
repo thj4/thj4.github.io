@@ -18,14 +18,23 @@ p {
 
 a {
     text-decoration: none;
-    color: #F65D13;
+    color: black;
 }
 a:hover {
     text-decoration: none;
-    color: #fc854c;
+    color: black;
+    font-weight: 600;
 }
 a:visited { text-decoration: none; }
 a:active { text-decoration: none; }
+
+.aunderline {
+    text-decoration: underline;
+}
+.aunderline:hover {
+    text-decoration: underline;
+}
+
 
 .mainc {
     width: 80%;
