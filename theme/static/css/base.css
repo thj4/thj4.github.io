@@ -116,3 +116,37 @@ a:active { text-decoration: none; }
 .en-column {
     margin-top: 5vh;
 }
+
+.postcard {
+    width: 40vw;
+    height: auto;
+}
+
+
+@media (max-width: 1025px) {
+    .postcard {
+        width: 50vw;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 820px) {
+    .postcard {
+        width: 60vw;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 415px) {
+    .postcard {
+        width: 70vw;
+        height: auto;
+    }
+}
+
+.postcard-back {
+    margin-top: 3vh;
+
+}
