@@ -6,10 +6,11 @@
 
 {% block bodyb %}
     <div class="container">
-        <img class="postcard" src="{{ SITE_URL }}/theme/images/t1_front_compressed.jpg">
+        <img class="postcard" src="{{ SITE_URL }}/theme/images/{%- block front -%}{%- endblock -%}">
     </div>
     <div class="container postcard-back">
-        <img class="postcard" src="{{ SITE_URL }}/theme/images/t1_back_compressed.jpg">
+        <img class="postcard" src="{{ SITE_URL }}/theme/images/{%- block back -%}{%- endblock -%}">
     </div>
 {% endblock %}
+
 
