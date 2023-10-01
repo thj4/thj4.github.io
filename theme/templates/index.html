@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% set data = [
-    [4, [2023, "12", "02"], "kristofer svensson", "nmz", "", ""],
-    [3, [2023, "10", "21"], "miki yui", "nmz", "", ""],
-    [2, [2023, "06", "02"], "ángeles rojas", "nmz", "", "angeles"],
-    [1, [2023, "05", "12"], "bernardo cruz", "nmz", "", "bernardo"],
+    [4, [2023, "12", "02", "8pm"], "kristofer svensson", "nmz, viehofer pl.18, essen", "", ""],
+    [3, [2023, "10", "21", "8pm"], "miki yui", "nmz, viehofer pl.18, essen", "", ""],
+    [2, [2023, "06", "02", "8pm"], "ángeles rojas", "nmz, viehofer pl.18, essen", "", "angeles"],
+    [1, [2023, "05", "12", "8pm"], "bernardo cruz", "nmz, viehofer pl.18, essen", "", "bernardo"],
 ] %}
 {% set mapping = {"index": 0, "date": 1, "name": 2, "room": 3, "food": 4, "subpage": 5} %}
 {% set type_to_column_count = {
         "index": 2,
         "date": 3,
         "name": 3,
-        "room": 1,
+        "room": 3,
         "food": 4
 } %}
 {% set count_to_name = {
@@ -38,7 +38,7 @@
                     <div class="{{ count_to_name[type_to_column_count[column_name]] }} columns">
                         {% set e = item[mapping[column_name]] %}
                         {% if column_name == "date" %}
-                            {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] %}
+                            {% set e = (e[0] | string) + "/" + e[1] + "/" + e[2] + ", " + e[3] %}
                         {% elif column_name == "index" %}
                             {% set e = "treff" + (e | string) %}
                         {% endif %}
