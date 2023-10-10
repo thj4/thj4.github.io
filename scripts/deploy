@@ -2,3 +2,7 @@
 ./scripts/render
 echo "treff.gnm.ruhr" > output/CNAME
 ghp-import output -b web --no-history
+echo "Now do"
+echo "  >>> git switch web"
+echo "  >>> git push -f origin web"
+echo "to deploy webpage."
