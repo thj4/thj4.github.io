@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{# essentially the same tike 'page.html' but without back #}
+
+{% block header %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block bodyb %}
+    <div class="container">
+        <img class="postcard" src="{{ SITE_URL }}/theme/images/{%- block front -%}{%- endblock -%}">
+    </div>
+{% endblock %}
+
+
