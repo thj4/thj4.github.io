@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 ./scripts/render
 echo "treff.gnm.ruhr" > output/CNAME
 ghp-import output -b web --no-history
